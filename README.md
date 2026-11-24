@@ -157,8 +157,14 @@ dialect/noise/checkpoint slices, adversarial delta, and scorer weights.
 
 ## CI
 
-GitHub Actions (`.github/workflows/test.yml`) runs unit tests on Python
-3.10/3.12 plus one end-to-end eval run (`eval --n 240`) on every push/PR.
+GitHub Actions workflow (`.github/workflows/test.yml`: unit tests on Python
+3.10/3.12 plus one end-to-end eval run, `eval --n 240`) is defined for this
+repo. Note: the token used for the initial push lacked the `workflow`
+scope, so GitHub rejected pushing that one file — its identical copy is
+pushed as `.github/workflows-test.yml.txt`; move it to
+`.github/workflows/test.yml` with a workflow-scoped token
+(`gh auth refresh -s workflow`) to activate CI.
+All other files, tests, and the benchmark are pushed and passing locally.
 
 ## License
 
